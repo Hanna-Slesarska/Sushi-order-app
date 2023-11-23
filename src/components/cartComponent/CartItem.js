@@ -1,8 +1,12 @@
 import dataSushi from '../../data/dataSushi'
 import binIcon from './icons8-trash-50.png'
+import {  useDispatch } from "react-redux";
+import { removeItemFromCart } from '../../redux/CartSlice'
+
 
 const CartItem = ({cartItem}) => {
     const sushi = dataSushi.find(item => item.id === cartItem.dishId)
+    const dispatch = useDispatch()
     
     return(
         <div className='cartItems-container'>
@@ -14,7 +18,8 @@ const CartItem = ({cartItem}) => {
                     <p className="cartItem-quantity-price cartItem-price">Price: ${(sushi.price * cartItem.quantity).toFixed(2)}</p>
                 </div>
             </div>
-            <img className="bin-icon" src={binIcon} alt="bin" />
+            <img onClick={() => {dispatch(removeItemFromCart({cartItemId: cartItem.id}))}} className="bin-icon" src={binIcon} alt="bin" />
+           
     </div>)
 }
 export default CartItem;
