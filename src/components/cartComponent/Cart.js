@@ -10,7 +10,7 @@ const Cart = () => {
     return(
         <div className='icon'>
             <p className="totalPrice">{totalPrice === 0 ? 'Cart is empty' : `Total: $${totalPrice.toFixed(2)}`}</p>
-            {addItems.map((cartItem, index) => <CartItem cartItem={cartItem} key={index}/>)}
+            {addItems.map(cartItem => <CartItem cartItem={cartItem} key={cartItem.id}/>)}
     </div>)
 }
 export default Cart;

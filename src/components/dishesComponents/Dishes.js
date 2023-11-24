@@ -11,7 +11,7 @@ const Dishes = () => {
             {dataSushi.filter(dish => {
         if (selectedCategory === 'All types') return true;
             return selectedCategory === dish.category;
-       }).map((dish, index) => <Dish dish={dish} key={index}/>)}
+       }).map(dish => <Dish dish={dish} key={dish.id}/>)}
         </div>
        
     </div>)
